@@ -1,4 +1,97 @@
+/* Mobile phone layout */
+@media screen and (max-width: 450px) {
+    html {
+        font-size: 100%;
+    }
+
+    body {
+        margin: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .home {
+        width: 100%;
+        min-height: auto;
+        padding: 25px 15px;
+    }
+
+    .home h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .home p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .home img {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        margin: 20px auto;
+        object-fit: cover;
+    }
+}
+/* Make all elements fit their containers */
 * {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tablet and mobile screens */
+@media screen and (max-width: 768px) {
+
+    .container,
+    .portfolio-container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    section {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: clamp(26px, 7vw, 36px);
+    }
+
+    p {
+        overflow-wrap: break-word;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+* {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -25,11 +118,13 @@ html {
 body {
     background: var(--bg-color);
     color: var(--text-color);
-    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 section {
-    min-width: 100vh;
+    width: 100%;
+    min-width: 0;
     padding: 10rem 9% 2rem;
 }
 
@@ -660,11 +755,15 @@ span {
 
 @media (max-width: 365px) {
     .home-img img {
-        width: 90vh;
+        width: min(90%, 280px);
+        max-width: 100%;
+        height: auto;
     }
 
-    .about-img img{
-        width: 90vh;
+    .about-img img {
+        width: min(90%, 280px);
+        max-width: 100%;
+        height: auto;
     }
 
     .footer {
@@ -676,4 +775,92 @@ span {
         margin-top: 2rem;
     }
 
+}
+
+/* Final phone layout fixes */
+@media screen and (max-width: 450px) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    section {
+        width: 100%;
+        min-width: 0;
+        padding: 9rem 5% 3rem;
+    }
+
+    .header {
+        padding: 1.5rem 5%;
+    }
+
+    .home {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .home-content,
+    .about-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .home-content h1 {
+        font-size: clamp(3.2rem, 10vw, 4.5rem);
+        overflow-wrap: anywhere;
+    }
+
+    .home-content h3 {
+        font-size: clamp(2rem, 6vw, 2.6rem);
+    }
+
+    .home-content p,
+    .about-content p {
+        font-size: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .home-img img,
+    .about-img img {
+        display: block;
+        width: min(80vw, 280px);
+        max-width: 100%;
+        height: auto;
+        margin: 2rem auto;
+    }
+
+    .about {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .portfolio-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .portfolio-container .portfolio-box {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .contact form .input-box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact form .input-box input,
+    .contact form textarea {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .footer {
+        gap: 1.5rem;
+        justify-content: center;
+        text-align: center;
+    }
 }
